@@ -30,4 +30,12 @@
 	- null != 0 or blank space
 	- it's distinct value in database
 	- if the attribute is optional is set to null
+
+# Data Analysis with SQL
+## MySql
+- OpenSource DBMS Build with Michel Beta3 ... see sql directory
+- Easy to understand , has few features , has many forks (mariadb , Percona , MySql Enterprise (oracle))
+- Mysql = Oracle
+
+[!PLEASENOTE] You need To understand containers.
 	 
