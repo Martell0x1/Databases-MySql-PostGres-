@@ -38,4 +38,30 @@
 - Mysql = Oracle
 
 [!PLEASENOTE] You need To understand containers.
+
+- we will start with installing it on an ubuntu container.
+- `docker run -it -v $(pwd)/databases:/usr/databases ubuntu:latest` = pulling ubuntu image
+- `container$ apt install mysql-server`
+- `sudo usermod -d /var/lib/mysql/ mysql`
+- `/etc/init.d/mysqld start`
+# SQL
+- `SHOW DATABASES;` shows all databaess on mysql engine.
+- `ALTER USER `root`@localhost INDETIFIED WITH mysql_native_password BY `PASS`` grants privleges to the root user with the PASS password
+
+- `mysql -u root -pPASS` = login with root user with PASS password (with no spaces !)
+- `show variables where variable_name = `datadir`;` , gets the system variable named datadir that contains the databases directory
+
+- `CREATE database testdb;` creates a new database
+- `each database in mysql is being stored in /var/lib/mysql/[dbname]` this directory contains the tables of that database.
+- `USE [dbname];` changes the database to dbname
+- `CREATE TABLE tbl1 (id INT , name VARCHAR(20))` , creates a table with 2 columns (id , name)
+- `Show tables from [dbname];` shows the tables in the database
+
+# Restoring Database
+- `SOURCE /usr/databases/sakila-db/sakila-schema.sql` , sakila-db is a famouse testing db , this will create the meta-data (empty tables)
+
+- `SOURCE /usr/databases/sakila-db/sakila-data.sql;` , this will fill the sakila database with actual data
+
+- `SELECT * FROM actor limit 10` SHOWS FIRST 10 ROWS IN A TABLE;
+- `show create table actor\G` shows the sql-statment of the created table;
 	 
