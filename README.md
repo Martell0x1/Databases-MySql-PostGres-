@@ -44,6 +44,15 @@
 - `container$ apt install mysql-server`
 - `sudo usermod -d /var/lib/mysql/ mysql`
 - `/etc/init.d/mysqld start`
+
+# Setting up Environment
+
+- `docker-compose -f sql/mysql.yml up -d`
+- the compose file contains 3 services , mysql official image (please ensure that your cpu version supports x64_86_v2 technology other wise edit the latest tag into 8.0.32) , the second one is mysql-workbensh , the third one is jupeter
+
+- Mysql-WorkBensh is a GUI representation for mysql db.
+
+- Databases in mysql is called schemas or databases (you may see it on mysql-workbench)
 # SQL
 - `SHOW DATABASES;` shows all databaess on mysql engine.
 - `ALTER USER `root`@localhost INDETIFIED WITH mysql_native_password BY `PASS`` grants privleges to the root user with the PASS password
@@ -64,4 +73,6 @@
 
 - `SELECT * FROM actor limit 10` SHOWS FIRST 10 ROWS IN A TABLE;
 - `show create table actor\G` shows the sql-statment of the created table;
+
+
 	 

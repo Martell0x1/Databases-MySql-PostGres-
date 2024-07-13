@@ -14,7 +14,7 @@ services:
       - 3306:3306
       - 33060:33060
     environment:
-      MYSQL_ROOT_PASSWORD: "P@ssw0rd"
+      MYSQL_ROOT_PASSWORD: "maro"
 
   mysql-workbench:
     image: linuxserver/mysql-workbench:latest
