@@ -2,6 +2,19 @@
 - a database is an organized collection of data so that it can be easily accessed.
 - To manage these databases , Databases Mangment System (DBMS) are used
 
+# Introduction to RDBMS
+-  a Database is a perceived form of data ... a data that can be saved on anything (text file , json file ...etc)
+
+- the situation was pretty missy ... peices of data in anyware .. until 1970 , when IBM came up with the `hierarchical database` which is very old database design (database model) (a way to connect different entities)
+
+- in 1970 , `edgar Godd` published a paper explaining the idea of the Relational Databases (Data Bank)
+
+- A `Relational Database` is a tabled form of database ... when you look at the database it will look like a table of columns and rows , the colum y has a relation with the row x
+
+- Dr.Ramez El Masrey has a signifcant book , talking about Databases called [Fundamentals of Database Systems](https://www.auhd.edu.ye/upfiles/elibrary/Azal2020-01-22-12-28-11-76901.pdf)
+
+
+
 # Types of DBMS
 - non-relational (DBMS): file , json , xml...
 - relational (RDBMS): mysql , sql-server Oracle...
@@ -9,9 +22,9 @@
 # why databases
 - the dealing with normal files(DBMS) is so hard compared with databases(RDBMS).
 
-- row = entity = record
+- row = record = relation
 - column = field = attribute = feature
-- table = Entity set
+- table = Entity
 
 ## Data vs Information vs Knowledge vs wisdom
 	# Data vs Information
@@ -31,6 +44,58 @@
 	- it's distinct value in database
 	- if the attribute is optional is set to null
 
+# Modeling and Designing
+- In RDB (Relational Database) a database appears in tables but the data itself isn't stored on the hard-disk in tables (not as .csv file) i will tell you how.
+
+- Always Remember that the data in the table infornt of you represents a story you can tell , if you for any reason faild to tell that story(look at the database-design.ipynb file , if you looked at suosan smith you will fail to tell her story) , you should edit your design.
+
++------------+---------+-----------------------+------+
+| GivenNames | Surname | CourseName            | Pctg |
++------------+---------+-----------------------+------+
+| John Paul  | Bloggs  | Data Science          |   72 |
+| Sarah      | Doe     | Programming 1         |   87 |
+| John Paul  | Bloggs  | Computing Mathematics |   43 |
+| John Paul  | Bloggs  | Computing Mathematics |   65 |
+| Sarah      | Doe     | Data Science          |   65 |
+| Susan      | Smith   | Computing Mathematics |   75 |
+| Susan      | Smith   | Programming 1         |   55 |
+| Susan      | Smith   | Computing Mathematics |   80 |
++------------+---------+-----------------------+------+
+
+- you would notice a problem that the girl named susan smith has different degree in the same subject in this way you will not be able to tell her story.
+
+- that's why we should edit this design and add another attribute / column called Id wich will make every student has it's own data so the story will be rright (the girl which has id x and her name is susan smith got A in prog 1)
+
++------------+------------+---------+-----------------------+------+
+| StudentID  | GivenNames | Surname | CourseName            | Pctg |
++------------+------------+---------+-----------------------+------+
+| 12345678   | John Paul  | Bloggs  | Data Science          |   72 |
+| 12345121   | Sarah      | Doe     | Programming 1         |   87 |
+| 12345678   | John Paul  | Bloggs  | Computing Mathematics |   43 |
+| 12345678   | John Paul  | Bloggs  | Computing Mathematics |   65 |
+| 12345121   | Sarah      | Doe     | Data Science          |   65 |
+| 12345876   | Susan      | Smith   | Computing Mathematics |   75 |
+| 12345876   | Susan      | Smith   | Programming 1         |   55 |
+| 12345303   | Susan      | Smith   | Computing Mathematics |   80 |
++------------+------------+---------+-----------------------+------+
+
+- in this edit also you would notice something that john paul is failed in the same subject ... did he failed or passed ??
+
+- that's why we should think about adding more details (chaning the design)
++------------+------------+---------+-----------------------+------+-----+------+
+| StudentID  | GivenNames | Surname | CourseName            | Year | Sem | Pctg |
++------------+------------+---------+-----------------------+------+-----+------+
+| 12345678   | John Paul  | Bloggs  | Data Science          | 2019 |   2 |   72 |
+| 12345121   | Sarah      | Doe     | Programming 1         | 2020 |   1 |   87 |
+| 12345678   | John Paul  | Bloggs  | Computing Mathematics | 2019 |   2 |   43 |
+| 12345678   | John Paul  | Bloggs  | Computing Mathematics | 2020 |   1 |   65 |
+| 12345121   | Sarah      | Doe     | Data Science          | 2020 |   1 |   65 |
+| 12345876   | Susan      | Smith   | Computing Mathematics | 2019 |   1 |   75 |
+| 12345876   | Susan      | Smith   | Programming 1         | 2019 |   2 |   55 |
+| 12345303   | Susan      | Smith   | Computing Mathematics | 2020 |   1 |   80 |
++------------+------------+---------+-----------------------+------+-----+------+
+
+
 # Data Analysis with SQL
 ## MySql
 - OpenSource DBMS Build with Michel Beta3 ... see sql directory
@@ -44,6 +109,7 @@
 - `container$ apt install mysql-server`
 - `sudo usermod -d /var/lib/mysql/ mysql`
 - `/etc/init.d/mysqld start`
+
 
 # Setting up Environment
 
